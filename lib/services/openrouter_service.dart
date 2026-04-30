@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../constants/prompts.dart';
 
 class OpenRouterService {
   static const String _url = 'https://openrouter.ai/api/v1/chat/completions';
   
-  // In a real app, use a secure way to store the API key
-  static const String _apiKey = String.fromEnvironment('OPENROUTER_KEY');
+  static String get _apiKey => dotenv.env['OPENROUTER_API_KEY'] ?? '';
 
   Future<Map<String, dynamic>> organizeTasks(String userText) async {
     try {
@@ -18,7 +18,7 @@ class OpenRouterService {
           'X-Title': 'Fluxo App',
         },
         body: jsonEncode({
-          'model': 'meta-llama/llama-3.2-3b-instruct:free',
+          'model': 'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free',
           'messages': [
             {'role': 'system', 'content': AppPrompts.systemPrompt},
             {'role': 'user', 'content': userText},

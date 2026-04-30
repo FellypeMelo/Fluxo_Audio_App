@@ -1,16 +1,15 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+# Conteúdo padrão do Flutter .gitignore
+# https://github.com/flutter/flutter/blob/master/.gitignore
 
-# dependencies
-node_modules/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
 
-# Expo
-.expo/
-dist/
-web-build/
-expo-env.d.ts
-
-# Native
-.kotlin/
+# Símbolos de depuração e arquivos locais
 *.orig.*
 *.jks
 *.p8
@@ -18,24 +17,22 @@ expo-env.d.ts
 *.key
 *.mobileprovision
 
-# Metro
-.metro-health-check*
-
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
+# Arquivos de ambiente e segredos
+.env
+.env*.local
 
 # macOS
 .DS_Store
-*.pem
 
-# local env files
-.env*.local
+# IDEs
+.idea/
+*.iml
+*.iws
+.vscode/
+*.swp
+*.swo
 
-# typescript
-*.tsbuildinfo
-
-# generated native folders
-/ios
-/android
+# Web
+node_modules/
+dist/
+web-build/

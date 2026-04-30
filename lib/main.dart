@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'constants/colors.dart';
 import 'providers/task_provider.dart';
 import 'screens/main_screen.dart';
@@ -8,6 +9,7 @@ import 'screens/main_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting('pt_BR', null);
+  await dotenv.load(fileName: ".env");
   runApp(
     MultiProvider(
       providers: [

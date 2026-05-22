@@ -4,13 +4,16 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../constants/prompts.dart';
 
 class OpenRouterService {
+  final http.Client _client;
   static const String _url = 'https://openrouter.ai/api/v1/chat/completions';
+  
+  OpenRouterService({http.Client? client}) : _client = client ?? http.Client();
   
   static String get _apiKey => dotenv.env['OPENROUTER_API_KEY'] ?? '';
 
   Future<Map<String, dynamic>> organizeTasks(String userText) async {
     try {
-      final response = await http.post(
+      final response = await _client.post(
         Uri.parse(_url),
         headers: {
           'Authorization': 'Bearer $_apiKey',

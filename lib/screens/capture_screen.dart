@@ -5,7 +5,8 @@ import '../providers/task_provider.dart';
 import '../widgets/mic_button.dart';
 
 class CaptureScreen extends StatefulWidget {
-  const CaptureScreen({super.key});
+  final OpenRouterService? service;
+  const CaptureScreen({super.key, this.service});
 
   @override
   State<CaptureScreen> createState() => _CaptureScreenState();
@@ -13,8 +14,14 @@ class CaptureScreen extends StatefulWidget {
 
 class _CaptureScreenState extends State<CaptureScreen> {
   final TextEditingController _controller = TextEditingController();
-  final OpenRouterService _openRouterService = OpenRouterService();
+  late final OpenRouterService _openRouterService;
   bool _isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _openRouterService = widget.service ?? OpenRouterService();
+  }
 
   @override
   void dispose() {
@@ -43,10 +50,11 @@ class _CaptureScreenState extends State<CaptureScreen> {
       _isLoading = true;
     });
 
+    final taskProvider = Provider.of<TaskProvider>(context, listen: false);
+
     try {
       final response = await _openRouterService.organizeTasks(text);
       final List<dynamic> aiTasks = response['tasks'];
-      final taskProvider = Provider.of<TaskProvider>(context, listen: false);
 
       for (var taskData in aiTasks) {
         taskProvider.addTask(
@@ -115,7 +123,7 @@ class _CaptureScreenState extends State<CaptureScreen> {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 filled: true,
-                fillColor: theme.colorScheme.surfaceVariant.withOpacity(0.3),
+                fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
               ),
             ),
             const SizedBox(height: 10),

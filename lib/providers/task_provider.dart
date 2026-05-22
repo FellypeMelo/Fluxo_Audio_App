@@ -61,7 +61,7 @@ class TaskProvider with ChangeNotifier {
       final newStatus = task.status == 'pendente' ? 'concluida' : 'pendente';
       _tasks[index] = task.copyWith(
         status: newStatus,
-        completedAt: newStatus == 'concluida' ? DateTime.now() : null,
+        completedAt: () => newStatus == 'concluida' ? DateTime.now() : null,
       );
       _saveTasks();
       notifyListeners();

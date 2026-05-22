@@ -47,7 +47,7 @@ class Task {
   
   Task copyWith({
     String? status,
-    DateTime? completedAt,
+    DateTime? Function()? completedAt,
   }) {
     return Task(
       id: id,
@@ -57,7 +57,7 @@ class Task {
       durationMin: durationMin,
       status: status ?? this.status,
       createdAt: createdAt,
-      completedAt: completedAt ?? this.completedAt,
+      completedAt: completedAt != null ? completedAt() : this.completedAt,
     );
   }
 }

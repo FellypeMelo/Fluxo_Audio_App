@@ -66,7 +66,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _buildSectionHeader('PERFIL'),
           Card(
             elevation: 0,
-            color: theme.colorScheme.surfaceContainerHighest.withOpacity(0.3),
+            color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             child: ListTile(
               leading: const Icon(Icons.person_outline),
@@ -84,21 +84,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _buildSectionHeader('APARÊNCIA'),
           Card(
             elevation: 0,
-            color: theme.colorScheme.surfaceContainerHighest.withOpacity(0.3),
+            color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             child: SwitchListTile(
               secondary: const Icon(Icons.dark_mode_outlined),
               title: const Text('Modo Escuro'),
               value: taskProvider.isDarkMode,
               onChanged: (bool value) => taskProvider.setDarkMode(value),
-              activeColor: theme.colorScheme.primary,
+              activeThumbColor: theme.colorScheme.primary,
             ),
           ),
           const SizedBox(height: 24),
           _buildSectionHeader('DADOS'),
           Card(
             elevation: 0,
-            color: theme.colorScheme.errorContainer.withOpacity(0.1),
+            color: theme.colorScheme.errorContainer.withValues(alpha: 0.1),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             child: ListTile(
               leading: Icon(Icons.delete_outline, color: theme.colorScheme.error),

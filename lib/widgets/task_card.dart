@@ -79,6 +79,7 @@ class TaskCard extends StatelessWidget {
           child: ListTile(
             contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             leading: InkWell(
+              key: const Key('task_toggle_button'),
               onTap: () => onToggle(task.id),
               child: Container(
                 width: 28,
@@ -111,7 +112,7 @@ class TaskCard extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                     decoration: BoxDecoration(
-                      color: priorityColor.withOpacity(0.1),
+                      color: priorityColor.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(6),
                     ),
                     child: Text(

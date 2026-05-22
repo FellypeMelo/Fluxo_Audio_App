@@ -39,10 +39,7 @@ class _MicButtonState extends State<MicButton> with SingleTickerProviderStateMix
 
   void _listen() async {
     if (!_isListening) {
-      bool available = await _speech.initialize(
-        onStatus: (val) => print('onStatus: $val'),
-        onError: (val) => print('onError: $val'),
-      );
+      bool available = await _speech.initialize();
       if (available) {
         setState(() => _isListening = true);
         _speech.listen(
@@ -80,7 +77,7 @@ class _MicButtonState extends State<MicButton> with SingleTickerProviderStateMix
               color: _isListening ? AppColors.error : AppColors.brightBlue,
               boxShadow: [
                 BoxShadow(
-                  color: (_isListening ? AppColors.error : AppColors.brightBlue).withOpacity(0.3),
+                  color: (_isListening ? AppColors.error : AppColors.brightBlue).withValues(alpha: 0.3),
                   blurRadius: 15,
                   spreadRadius: 5,
                 ),

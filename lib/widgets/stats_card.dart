@@ -26,7 +26,7 @@ class StatsCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: AppColors.deepBlue.withOpacity(0.3),
+            color: AppColors.deepBlue.withValues(alpha: 0.3),
             blurRadius: 15,
             offset: const Offset(0, 8),
           ),
@@ -50,7 +50,7 @@ class StatsCard extends StatelessWidget {
                 Text(
                   '$completed de $total tarefas concluídas',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.8),
+                    color: Colors.white.withValues(alpha: 0.8),
                     fontSize: 14,
                   ),
                 ),
@@ -62,7 +62,7 @@ class StatsCard extends StatelessWidget {
             height: 60,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withValues(alpha: 0.2),
               border: Border.all(color: Colors.white, width: 2),
             ),
             child: Center(

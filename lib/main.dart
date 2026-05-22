@@ -10,14 +10,21 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting('pt_BR', null);
   await dotenv.load(fileName: ".env");
-  runApp(
-    MultiProvider(
+  runApp(const FluxoRoot());
+}
+
+class FluxoRoot extends StatelessWidget {
+  const FluxoRoot({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => TaskProvider()),
       ],
       child: const FluxoApp(),
-    ),
-  );
+    );
+  }
 }
 
 class FluxoApp extends StatelessWidget {

@@ -1,6 +1,6 @@
 {
-  "last_session_id": "680ecf2c-7265-4054-93dd-abae3f9b63c0",
-  "last_event_key": "680ecf2c-7265-4054-93dd-abae3f9b63c0:transcript:dc78b7c22ddd192912dc470688d3b1cab91e9780e89d512e681532db47e00edc",
+  "last_session_id": "10af55d1-fdc9-4257-9346-44254098306d",
+  "last_event_key": "10af55d1-fdc9-4257-9346-44254098306d:transcript:4a43822a8e15b3d05eed28da2d27387e160cbf27aabb6fe21e661dd205f02818",
   "last_prompted_session_id": "",
   "last_reason": "short-session",
   "last_prompted_at": "",
@@ -8,5 +8,5 @@
   "last_actionable_message_count": 0,
   "deep_interview_lock_active": false,
   "deep_interview_lock_source": "/run/media/fellypemelo/c9a80862-8eea-4c5c-9fd2-21fd91615c57/Programas/Fluxo_Audio_App/.omg/state/deep-interview.json",
-  "updated_at": "2026-05-21T17:44:07.771Z"
+  "updated_at": "2026-05-22T17:12:50.402Z"
 }

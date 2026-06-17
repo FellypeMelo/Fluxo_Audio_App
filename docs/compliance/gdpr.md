@@ -1,0 +1,3 @@
+# GDPR Compliance
+
+Adequação europeia.
